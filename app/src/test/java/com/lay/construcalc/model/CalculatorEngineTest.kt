@@ -7,6 +7,24 @@ class CalculatorEngineTest {
     @Test fun blocks_round_up() =
         assertEquals("≈ 100 blocos", CalculatorEngine.calculate(CalculatorType.BLOCKS, listOf(10.0, 2.0, 40.0, 40.0)))
 
+    @Test fun block_mold_shows_distribution_and_utilization() =
+        assertEquals(
+            "320 blocos por molde\n5 × 4 × 4\nAproveitamento: 100.00%\nOrientação: 20 × 20 × 10 cm",
+            CalculatorEngine.calculate(
+                CalculatorType.BLOCK_MOLD,
+                listOf(100.0, 80.0, 40.0, 20.0, 20.0, 10.0)
+            )
+        )
+
+    @Test fun block_mold_checks_rotated_orientation() =
+        assertEquals(
+            "4 blocos por molde\n1 × 2 × 2\nAproveitamento: 66.67%\nOrientação: 20 × 10 × 5 cm",
+            CalculatorEngine.calculate(
+                CalculatorType.BLOCK_MOLD,
+                listOf(30.0, 20.0, 10.0, 10.0, 5.0, 20.0)
+            )
+        )
+
     @Test fun concrete_applies_margin() =
         assertEquals("≈ 1.10 m³", CalculatorEngine.calculate(CalculatorType.CONCRETE, listOf(2.0, 0.5, 1.0, 10.0)))
 
