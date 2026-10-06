@@ -2,6 +2,7 @@ package com.lay.construcalc.ads
 
 import android.app.Activity
 import android.content.Context
+import android.content.pm.ApplicationInfo
 import android.util.Log
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
@@ -30,7 +31,7 @@ class AdManager(context: Context) {
     }
 
     private val adUnitId: String
-        get() = if (com.lay.construcalc.BuildConfig.DEBUG) TEST_INTERSTITIAL else LIVE_INTERSTITIAL
+        get() = if ((appContext.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0) TEST_INTERSTITIAL else LIVE_INTERSTITIAL
 
     fun initialize() {
         MobileAds.initialize(appContext) {
