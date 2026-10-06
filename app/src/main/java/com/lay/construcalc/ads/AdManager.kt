@@ -41,7 +41,8 @@ class AdManager(private val context: Context) {
 
     fun maybeShow(activity: Activity, after: () -> Unit) {
         val now = System.currentTimeMillis()
-        val eligible = completedActions > FREE_ACTIONS && now - lastShownAt >= MIN_INTERVAL_MS
+        val eligible = completedActions > FREE_ACTIONS &&
+            now - lastShownAt >= MIN_INTERVAL_MS
         val ad = interstitial
 
         if (!eligible || ad == null) {
@@ -50,23 +51,27 @@ class AdManager(private val context: Context) {
         }
 
         interstitial = null
-        lastShownAt = now
         ad.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdDismissedFullScreenContent() {
                 load()
                 after()
             }
+
             override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                lastShownAt = 0L
                 load()
                 after()
             }
         }
+
+        lastShownAt = now
         ad.show(activity)
     }
 
     private fun load() {
         if (loading || interstitial != null) return
         loading = true
+
         InterstitialAd.load(
             context,
             adUnitId,
@@ -77,6 +82,7 @@ class AdManager(private val context: Context) {
                     interstitial = ad
                     Log.d(TAG, "Interstitial loaded")
                 }
+
                 override fun onAdFailedToLoad(adError: LoadAdError) {
                     loading = false
                     interstitial = null
