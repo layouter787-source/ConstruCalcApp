@@ -15,7 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.DeleteSweep
 import androidx.compose.material.icons.filled.History
@@ -197,7 +197,7 @@ private fun CalculatorScreen(
     Column(Modifier.fillMaxSize().background(Surface)) {
         TopAppBar(
             title = { Text(type.title, fontWeight = FontWeight.Bold) },
-            navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, "Voltar") } },
+            navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Voltar") } },
             colors = TopAppBarDefaults.topAppBarColors(containerColor = Surface)
         )
         Column(Modifier.fillMaxSize().verticalScroll(scrollState).padding(horizontal = 20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
