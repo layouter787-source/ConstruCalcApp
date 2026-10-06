@@ -12,7 +12,7 @@ class CalculatorEngineTest {
 
     @Test fun blocks_applies_joint_waste_and_openings() =
         assertEquals(
-            "≈ 83 blocos\nÁrea líquida: 18.00 m²\nBase: 75 blocos\nJunta: 1.00 cm\nDesperdício: 10.00%\nAberturas descontadas: 2.00 m²",
+            "≈ 119 blocos\nÁrea líquida: 18.00 m²\nBase: 108 blocos\nJunta: 1.00 cm\nDesperdício: 10.00%\nAberturas descontadas: 2.00 m²",
             CalculatorEngine.calculate(CalculatorType.BLOCKS, listOf(10.0, 2.0, 40.0, 40.0, 1.0, 10.0, 2.0))
         )
 
