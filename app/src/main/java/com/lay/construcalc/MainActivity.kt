@@ -319,7 +319,7 @@ private fun SettingsScreen() {
         Card(shape = RoundedCornerShape(20.dp), modifier = Modifier.fillMaxWidth()) {
             Column(Modifier.padding(20.dp)) {
                 Text("ConstruCalc", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                Text("Versão 1.0", color = Muted)
+                Text("Versão 1.1.0", color = Muted)
                 Spacer(Modifier.height(12.dp))
                 Text("Calculadoras para construção civil, histórico local e monetização AdMob.", color = Muted)
             }
