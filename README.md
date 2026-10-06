@@ -1,42 +1,39 @@
 # ConstruCalc
 
-Aplicativo Android moderno para cálculos de construção civil.
+Aplicativo Android profissional para cálculos de construção civil.
 
-## Incluído
+## Calculadoras
 
-- Interface moderna em Jetpack Compose + Material 3.
-- Calculadora de blocos.
-- Calculadora de concreto.
-- Calculadora de área.
-- Calculadora de volume.
-- Navegação inferior.
-- Estrutura preparada para histórico e definições.
-- Google AdMob com anúncio intersticial.
-- IDs de teste usados automaticamente em DEBUG.
-- ID real do AdMob usado apenas em RELEASE.
-- Consentimento de privacidade via Google UMP.
+- **Blocos:** parede, junta de argamassa, desperdício e desconto de portas/janelas.
+- **Blocos no molde:** testa as seis orientações possíveis e mostra distribuição e aproveitamento volumétrico.
+- **Concreto:** volume com margem.
+- **Área:** área com percentual extra.
+- **Volume:** comprimento × largura × altura.
+- **Histórico:** guarda até 30 cálculos localmente no dispositivo.
 
 ## AdMob
 
 App ID:
 ca-app-pub-7506276099130482~3436484957
 
-Interstitial:
+Interstitial de produção:
 ca-app-pub-7506276099130482/5581275875
 
-Durante DEBUG é usado o ID oficial de teste do Google para interstitial:
+ID oficial de teste usado automaticamente em DEBUG:
 ca-app-pub-3940256099942544/1033173712
 
-O anúncio real só deve ser usado na versão de produção.
+O anúncio não aparece na abertura. Os três primeiros cálculos são gratuitos; depois há intervalo mínimo de 5 minutos entre intersticiais. O anúncio só é mostrado depois de um cálculo concluído, nunca durante a introdução dos dados. Se não estiver disponível, o cálculo continua normalmente.
 
-## Frequência
-
-O app não mostra interstitial na abertura. Os primeiros 3 cálculos ficam livres. Depois disso, o sistema exige pelo menos 5 minutos entre interstitials e só mostra em uma transição após um cálculo concluído.
-
-Se o anúncio não estiver carregado, o cálculo continua normalmente.
+O fluxo de consentimento usa Google UMP antes da inicialização dos anúncios.
 
 ## Build
 
-Abra o projeto no Android Studio e sincronize o Gradle. O workflow do GitHub também executa assembleDebug.
+Abra o projeto no Android Studio e sincronize o Gradle.
 
-Requisitos usados no projeto: compileSdk 35 e minSdk 24.
+Requisitos atuais:
+- compileSdk 35
+- minSdk 24
+- JDK 17
+- Gradle 8.7 no CI
+
+Os workflows executam build/testes e lint.
