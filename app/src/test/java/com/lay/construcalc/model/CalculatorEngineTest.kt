@@ -6,7 +6,7 @@ import org.junit.Test
 class CalculatorEngineTest {
     @Test fun blocks_round_up() =
         assertEquals(
-            "≈ 100 blocos\nÁrea líquida: 20.00 m²\nBase: 100 blocos",
+            "≈ 125 blocos\nÁrea líquida: 20.00 m²\nBase: 125 blocos",
             CalculatorEngine.calculate(CalculatorType.BLOCKS, listOf(10.0, 2.0, 40.0, 40.0))
         )
 
@@ -18,7 +18,7 @@ class CalculatorEngineTest {
 
     @Test fun block_mold_checks_rotated_orientation() =
         assertEquals(
-            "4 blocos por molde\n1 × 2 × 2\nAproveitamento: 66.67%\nOrientação: 20 × 10 × 5 cm",
+            "6 blocos por molde\n3 × 1 × 2\nAproveitamento: 100.00%\nOrientação: 10 × 20 × 5 cm",
             CalculatorEngine.calculate(CalculatorType.BLOCK_MOLD, listOf(30.0, 20.0, 10.0, 10.0, 5.0, 20.0))
         )
 
