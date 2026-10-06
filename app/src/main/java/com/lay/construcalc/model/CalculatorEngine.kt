@@ -76,6 +76,6 @@ object CalculatorEngine {
         }
     }
 
-    private fun trim(value: Double) = if (value % 1.0 == 0.0) value.toInt().toString() else String.format(Locale.getDefault(), "%.2f", value)
-    private fun format(value: Double) = String.format(Locale.getDefault(), "%.2f", value)
+    private fun trim(value: Double) = if (value % 1.0 == 0.0) value.toInt().toString() else String.format(Locale.US, "%.2f", value)
+    private fun format(value: Double) = String.format(Locale.US, "%.2f", value)
 }
